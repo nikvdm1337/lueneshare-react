@@ -6,16 +6,16 @@ export default class SidebarMain extends React.Component {
   render() {
     return (
       <div className="SidebarMain">
-        <p>Share mich hart!</p>
+        <h4>Wonach suchst du?</h4>
         <Nav vertical>
           <NavItem>
-            <NavLink href="#">Link</NavLink>
+            <NavLink href="#">Frisch gekocht</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Link</NavLink>
+            <NavLink href="#">Kühlschrank plündern</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Another Link</NavLink>
+            <NavLink href="#">Hab' da was gefunden</NavLink>
           </NavItem>
         </Nav>
       </div>
