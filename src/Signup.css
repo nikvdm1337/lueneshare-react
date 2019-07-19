@@ -1,0 +1,17 @@
+#signup {
+    background-image: url('./img/bglogin.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1570px 951px;
+    height:100vh;
+    margin: 0px;
+}
+
+.signup {
+    margin-top: 240px;
+}
+
+.root {
+    margin: 0px;
+    max-width:100%
+}
