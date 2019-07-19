@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavbarMain from './NavMain';
+import SidebarMain from './Sidebar';
+import ProductsMain from './ProductsMain'
+import {Container, Row, Col} from 'reactstrap'; 
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="megawrap">
+     <NavbarMain sticky={'top'}/>
+     <Container>
+      <Row>
+        <Col sm={2}> <SidebarMain /> </Col>
+        <Col sm={10}> <ProductsMain /> </Col> 
+      </Row>
+    </Container>
     </div>
   );
 }
