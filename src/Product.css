@@ -1,0 +1,8 @@
+.productsmain {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.product {
+    margin-top: 20px;
+}
