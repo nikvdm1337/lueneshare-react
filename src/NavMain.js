@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Navbar, Nav} from 'react-bootstrap';
+import Login from './Login'
 
 class NavMain extends Component {
 	// Data
@@ -10,15 +11,15 @@ class NavMain extends Component {
 	// Render
 	render() {
 		return (
-<Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/">LüneShare</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="/">Stell' was rein!</Nav.Link>
-      <Nav.Link href="/profil">Mein Profil</Nav.Link>
-      <Nav.Link href="/login">Meld' dich an</Nav.Link>
-      <Nav.Link href="/signup">Registrier dich</Nav.Link>
-    </Nav>
-  </Navbar>		
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/">LüneShare</Navbar.Brand>
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Stell' was rein!</Nav.Link>
+            <Nav.Link href="/profil">Mein Profil</Nav.Link>
+            <Nav.Link href="/signup">Registrier dich</Nav.Link>
+            <Login />
+          </Nav>
+       </Navbar>		
   )
 	}
 }
