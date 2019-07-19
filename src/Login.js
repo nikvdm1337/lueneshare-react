@@ -1,36 +1,25 @@
-import React, {Component} from 'react'
-// import axios from 'axios'
-import {Form, Button} from 'react-bootstrap';
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Login.css'
 
-class Login extends Component {
-
-	// Render
-	render() {
-		return (
-            <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-          
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group controlId="formBasicChecbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-			
-			
-		)
-	}
+export default class Login extends React.Component {
+  //Function
+  submitlogin = (e) => {
+    e.preventDefault()
+  }
+  render() {
+    return (
+      <Form inline onSubmit={(e)=> this.submitlogin(e)}>
+        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+          <Label for="exampleEmail" className="mr-sm-2">Email</Label>
+          <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
+        </FormGroup>
+        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+          <Label for="examplePassword" className="mr-sm-2">Password</Label>
+          <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
+        </FormGroup>
+        <Button>Submit</Button>
+      </Form>
+    );
+  }
 }
-
-export default Login
