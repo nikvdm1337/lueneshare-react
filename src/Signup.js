@@ -1,11 +1,36 @@
 import React, {Component} from 'react'
-
+import axios from 'axios'
 import './Signup.css'
 
 class Signup extends Component {
-	// Data
-    // Functions
+// Data
+	state = {
+		name: '',
+		email: '',
+		password: ''
+	}
+	// Functions
+	changeName = (e) => {
+		this.setState({name: e.target.value})
+	}
 
+	changeEmail = (e) => {
+		this.setState({email: e.target.value})
+	}
+
+	changePassword = (e) => {
+		this.setState({password: e.target.value})
+	}
+
+	signup = (e) => {
+		e.preventDefault()
+		axios.post('http://localhost:2000/api/signup', this.state).then((res) => {
+			localStorage.setItem('token', res.data.token)
+			this.props.auth()
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
 	// Render
 	render() {
 	
@@ -16,15 +41,15 @@ class Signup extends Component {
               <div className="card signup">
                 <div className="card-body">
                 <h3>Registriere dich bei LueneShare!</h3 >
-                  <form>
+                  <form onSubmit={(e) => this.signup(e)}>
                     <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Nickname..."  />
+                      <input type="text" className="form-control" placeholder="Nickname..." value={this.state.name} onChange={(e) => this.changeName(e)} />
                     </div>
                     <div className="form-group">
-                      <input type="email" className="form-control" placeholder="Email..."  />
+                      <input type="email" className="form-control" placeholder="Email..." value={this.state.email} onChange={(e) => this.changeEmail(e)} />
                     </div>
                     <div className="form-group">
-                      <input type="password" className="form-control" placeholder="Password..."  />
+                      <input type="password" className="form-control" placeholder="Password..." value={this.state.password} onChange={(e) => this.changePassword(e)} />
                     </div>
                     <button type="submit" className="btn btn-success">Signup</button>
                   </form>
