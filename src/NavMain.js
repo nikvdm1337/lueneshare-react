@@ -14,7 +14,7 @@ class NavMain extends Component {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">LüneShare</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/">Stell' was rein!</Nav.Link>
+            <Nav.Link href="/submit">Stell' was rein!</Nav.Link>
             <Nav.Link href="/profil">Mein Profil</Nav.Link>
             <Nav.Link href="/signup">Registrier dich</Nav.Link>
             <Login />
