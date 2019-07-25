@@ -15,19 +15,33 @@ class App extends Component {
 		super();
 		this.state = {
 			category:'',
+			categories:[],
+			products: [],
+			newProduct: null,
 		};
 	}
 
+	componentDidMount() {
+		axios.get(`http://localhost:2000/api/categories`).then((res) => {
+			console.log(res.data)
+			this.setState({
+				categories: res.data
+			})	
+			
+		}).catch((err) => {
+			console.log('err', err)
+		})
+  }
 	// Functions
 	setCategory = (id) => {
 		this.setState({
 			category: id
 		})
-		console.log('pressed link')
 	}
 
-	createProduct = (e, obj) => {
-		e.preventDefault()
+
+	createProduct = (obj) => {
+		console.log('object', obj)
 		axios.post(
 			`http://localhost:2000/api/products`,
 			obj,
@@ -50,9 +64,15 @@ class App extends Component {
      <NavbarMain sticky={'top'}/>
      <Container>
       <Row>
-        <Col sm={2}> <SidebarMain setCategory={this.setCategory} auth={this.props.auth}/> </Col>
+        <Col sm={2}>
+			<SidebarMain
+		 		setCategory={this.setCategory} 
+				auth={this.props.auth} 
+		 		categories={this.state.categories}
+			 />
+		</Col>
         <Col sm={10}> <ProductsMain  /> </Col> 
-		<Submit createProduct={this.createProduct}/>
+		<Submit createProduct={this.createProduct} categories={this.state.categories}/>
       </Row>
     </Container>
     </div>
