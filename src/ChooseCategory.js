@@ -1,20 +1,19 @@
 import React, {Component} from 'react'
 import { option } from 'react-bootstrap';
 
-class Category extends Component {
+class ChooseCategory extends Component {
 	// Data
-	
 	// Functions
 	componentWillMount() {
-		console.log(this.props)
+		console.log(this.props.categories)
 	}
 
 	// Render
 	render() {
 		return (
-			<option onClick={() => this.props.setCategory(this.props.categoryID)}>{this.props.category.name}</option>
+			<option> onClick={() => this.props.setCategory(this.props.categoryid)}>{this.props.categories.name}</option>
 		)
 	}
 }
 
-export default Category
+export default ChooseCategory
