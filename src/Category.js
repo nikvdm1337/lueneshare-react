@@ -5,9 +5,7 @@ class Category extends Component {
 	// Data
 	
 	// Functions
-	componentWillMount() {
-		console.log(this.props)
-	}
+	
 
 	// Render
 	render() {
