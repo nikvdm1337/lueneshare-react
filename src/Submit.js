@@ -1,58 +1,53 @@
 import React, {Component} from 'react'
-import axios from 'axios'
-import SubmitNav from './SubmitNav'
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import ChooseCategory from './ChooseCategory'
-
-
 
 class Submit extends Component {
-	state = {
-    title:'',
-    categories: [],
-    description: '',
-	}
+  constructor() {
+    super();
+    
+    this.state = {
+      title:'',
+      description: '',
+      category: '',
+    }
+  }
 	// Lifecycle
-	componentDidMount() {
-		axios.get(`http://localhost:2000/api/categories`).then((res) => {
-      console.log(res.data)
-			this.setState({
-        categories: res.data   
-			})	
-		}).catch((err) => {
-      console.log('err', err)
-		})
-  }
-  
-  submit = (e) => {
-    e.preventDefault()
-    axios.post('http://localhost:2000/api/products').then((res) => {
+  componentDidUpdate(prevProps) {
+    if (this.props.categories !== prevProps.categories) {
       this.setState({
-        title: this.state.title,
-        categories: this.state.categories,
-        description: this.state.description
+        category: (this.props.categories[0] && this.props.categories[0].name) || []
       })
-      console.log('res', res.data)
-    })
+    } 
   }
+
     //Render
     render() {
     return (
-            <Form onSubmit={(e) => this.submit(e)}>
-            <SubmitNav />
+            <Form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                this.props.createProduct({
+                  title: this.state.title, 
+                  description: this.state.description, 
+                  category:this.state.category
+                  })
+                }
+              }
+            >
+
               <FormGroup row>
                 <Label for="exampleEmail" sm={2}>Titel</Label>
                 <Col sm={5}>
-                  <Input type="text" name="Title" placeholder="Trag 'nen Titel ein" />
+                  <Input type="text" name="Title" placeholder="Trag 'nen Titel ein" onChange={(e) => this.setState({title:e.target.value})}/>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="exampleSelect" sm={2}>Wähle eine Kategorie</Label>
                 <Col sm={5}>
-                  <Input type="select" name="select" id="exampleSelect">
+                  <Input type="select" name="select" id="exampleSelect" onChange={(e)=> this.setState({category:e.target.value}) }>
                   {
-						    this.state.categories.map((c) => {  
-							return <option category={c} key={c._id} setCategory={this.props.setCategory} categoryID={c._id}> <ChooseCategory /> </option>
+						   this.props.categories && this.props.categories.map((c) => {  
+							return <option category={c} key={c._id}> {c.name} </option>
 						})
 					}
                   </Input>
@@ -61,7 +56,7 @@ class Submit extends Component {
               <FormGroup row>
                 <Label for="exampleText" sm={2}>Beschreibung</Label>
                 <Col sm={5}>
-                  <Input type="textarea" name="text" id="exampleText" />
+                  <Input type="textarea" name="text" id="exampleText" onChange={(e) => this.setState({description:e.target.value})} />
                 </Col>
               </FormGroup>
               <FormGroup row>
