@@ -28,8 +28,8 @@ class Routes extends Component {
 				<Switch>
 					<Route path="/login" component={() => <Login auth={this.auth} />} />
 					<Route path="/signup" component ={() => <Signup auth={this.auth} />} />
-					<Route path="/submit" component = {() => <Submit />} />
-                    <Route path="/" component={() => <App />} />
+					<Route path="/submit" component = {() => <Submit auth={this.auth}/>} />
+                    <Route path="/" component={() => <App auth={this.auth} />} />
 					
 				</Switch>
 			</BrowserRouter>
