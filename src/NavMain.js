@@ -7,7 +7,6 @@ class NavMain extends Component {
 	
 	// Functions
 	
-
 	// Render
 	render() {
 		return (
@@ -17,7 +16,7 @@ class NavMain extends Component {
             <Nav.Link href="/submit">Stell' was rein!</Nav.Link>
             <Nav.Link href="/profil">Mein Profil</Nav.Link>
             <Nav.Link href="/signup">Registrier dich</Nav.Link>
-            <Login />
+            <Login auth={this.props.auth} />
           </Nav>
        </Navbar>		
   )
