@@ -2,29 +2,43 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import SubmitNav from './SubmitNav'
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import App from './App'
+import ChooseCategory from './ChooseCategory'
+
 
 
 class Submit extends Component {
 	state = {
-		categories: []
+    title:'',
+    categories: [],
+    description: '',
 	}
 	// Lifecycle
 	componentDidMount() {
 		axios.get(`http://localhost:2000/api/categories`).then((res) => {
-			console.log(res.data)
+      console.log(res.data)
 			this.setState({
-				categories: res.data
+        categories: res.data   
 			})	
-			
 		}).catch((err) => {
-			console.log('err', err)
+      console.log('err', err)
 		})
+  }
+  
+  submit = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:2000/api/products').then((res) => {
+      this.setState({
+        title: this.state.title,
+        categories: this.state.categories,
+        description: this.state.description
+      })
+      console.log('res', res.data)
+    })
   }
     //Render
     render() {
     return (
-            <Form>
+            <Form onSubmit={(e) => this.submit(e)}>
             <SubmitNav />
               <FormGroup row>
                 <Label for="exampleEmail" sm={2}>Titel</Label>
@@ -38,7 +52,7 @@ class Submit extends Component {
                   <Input type="select" name="select" id="exampleSelect">
                   {
 						    this.state.categories.map((c) => {  
-							return <option category={c} key={c._id} setCategory={this.props.setCategory} categoryID={c._id} />
+							return <option category={c} key={c._id} setCategory={this.props.setCategory} categoryID={c._id}> <ChooseCategory /> </option>
 						})
 					}
                   </Input>
