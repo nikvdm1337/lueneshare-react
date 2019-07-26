@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import ChooseCategory from './ChooseCategory'
 
 class Submit extends Component {
   constructor() {
@@ -8,7 +9,7 @@ class Submit extends Component {
     this.state = {
       title:'',
       description: '',
-      category: '',
+      category: ''
     }
   }
 	// Lifecycle
@@ -20,16 +21,26 @@ class Submit extends Component {
     } 
   }
 
+  setCategory = (id) => {
+		console.log('id', id)
+		this.setState({
+			category: id
+		}, () => {
+			console.log('categorySetState', this.state.category)
+		}) 
+	}
+
     //Render
     render() {
     return (
             <Form 
               onSubmit={(e) => {
                 e.preventDefault();
+                console.log('submit state', this.state)
                 this.props.createProduct({
                   title: this.state.title, 
                   description: this.state.description, 
-                  category:this.state.category
+                  category: this.state.category
                   })
                 }
               }
@@ -44,13 +55,16 @@ class Submit extends Component {
               <FormGroup row>
                 <Label for="exampleSelect" sm={2}>Wähle eine Kategorie</Label>
                 <Col sm={5}>
-                  <Input type="select" name="select" id="exampleSelect" onChange={(e)=> this.setState({category:e.target.value}) }>
-                  {
-						   this.props.categories && this.props.categories.map((c) => {  
-							return <option category={c} key={c._id}> {c.name} </option>
-						})
-					}
-                  </Input>
+                 
+                  <select>
+                    {
+                      this.props.categories && this.props.categories.map((c) => {  
+                         return (<ChooseCategory setCategory={this.setCategory} categories={this.state.categories} category={c} key={c._id} />)
+                       })
+                    }
+                  </select>
+
+
                 </Col>
               </FormGroup>
               <FormGroup row>

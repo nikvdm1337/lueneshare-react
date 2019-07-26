@@ -34,14 +34,17 @@ class App extends Component {
   }
 	// Functions
 	setCategory = (id) => {
+		console.log('id', id)
 		this.setState({
 			category: id
-		})
+		}, () => {
+			console.log('categorySetState', this.state.category)
+		}) 
 	}
 
-
+	
 	createProduct = (obj) => {
-		console.log('object', obj)
+		console.log('object!', obj)
 		axios.post(
 			`http://localhost:2000/api/products`,
 			obj,
@@ -49,19 +52,22 @@ class App extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then((res) => {
+			console.log('res', res)
 			let products = this.state.products
 			products.unshift(res.data)
 			this.setState({products})
 		}).catch((err) => {
 			console.log('err', err)
 		})
-	}
+		console.log('state',this.state)
+	
+}
 	// Render
 	render() {
 		return (
 
     <div className="megawrap">
-     <NavbarMain sticky={'top'}/>
+     <NavbarMain sticky={'top'} auth={this.props.auth} />
      <Container>
       <Row>
         <Col sm={2}>
@@ -72,7 +78,7 @@ class App extends Component {
 			 />
 		</Col>
         <Col sm={10}> <ProductsMain  /> </Col> 
-		<Submit createProduct={this.createProduct} categories={this.state.categories}/>
+		<Submit  createProduct={this.createProduct} categories={this.state.categories} />
       </Row>
     </Container>
     </div>

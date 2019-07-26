@@ -48,11 +48,11 @@ export default class Login extends React.Component {
       <Form inline onSubmit={(e) => this.login(e)}>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" value={this.state.email} onChange={(e) => this.changeEmail(e)} />
+          <Input type="email" name="email" id="exampleEmail" placeholder="E-Mail..." value={this.state.email} onChange={(e) => this.changeEmail(e)} />
         </FormGroup>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Label for="examplePassword" className="mr-sm-2">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" value={this.state.password} onChange={(e) => this.changePassword(e)} />
+          <Input type="password" name="password" id="examplePassword" placeholder="Passwort..." value={this.state.password} onChange={(e) => this.changePassword(e)} />
         </FormGroup>
         <Button>Submit</Button>
       </Form>
