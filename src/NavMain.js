@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Navbar, Nav} from 'react-bootstrap';
 import Login from './Login'
 import Logout from './Logout'
+import './NavMain.css'
 
 class NavMain extends Component {
 	// Data
@@ -19,7 +20,7 @@ class NavMain extends Component {
 	// Render
 	render() {
 		return (
-      <Navbar bg="dark" variant="dark">
+      <Navbar>
         <Navbar.Brand href="/">LüneShare</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/submit">Stell' was rein!</Nav.Link>
