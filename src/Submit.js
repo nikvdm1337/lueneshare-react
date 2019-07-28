@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import ChooseCategory from './ChooseCategory'
+import './Submit.css'
 
 class Submit extends Component {
   constructor() {
@@ -9,7 +10,8 @@ class Submit extends Component {
     this.state = {
       title:'',
       description: '',
-      category: ''
+      category: '',
+      image:'',
     }
   }
 	// Lifecycle
@@ -33,14 +35,15 @@ class Submit extends Component {
     //Render
     render() {
     return (
-            <Form 
+            <Form className="submitform"
               onSubmit={(e) => {
                 e.preventDefault();
                 console.log('submit state', this.state)
                 this.props.createProduct({
                   title: this.state.title, 
                   description: this.state.description, 
-                  category: this.state.category
+                  category: this.state.category,
+                  image: this.state.image
                   })
                 }
               }
@@ -74,17 +77,14 @@ class Submit extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label for="exampleFile" sm={2}>Lad' ein Bild hoch</Label>
+                <Label for="exampleText" sm={2}>Bild</Label>
                 <Col sm={5}>
-                  <Input type="file" name="file" id="exampleFile" />
-                  <FormText color="muted">
-                    Nur im .jpg oder .png Format und kleiner als 1 mb.
-                  </FormText>
+                  <Input type="textarea" name="text" id="exampleText" onChange={(e) => this.setState({image:e.target.value})} />
                 </Col>
               </FormGroup>
               <FormGroup check row>
                 <Col sm={{ size: 5, offset: 2 }}>
-                  <Button>Submit</Button>
+                  <Button>Abschicken</Button>
                 </Col>
               </FormGroup>
             </Form>
