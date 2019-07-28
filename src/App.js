@@ -72,7 +72,7 @@ class App extends Component {
      <NavbarMain sticky={'top'} auth={this.props.auth} />
      <Container>
       <Row>
-        <Col sm={2}>
+        <Col sm={3}>
 		<Submit  createProduct={this.createProduct} categories={this.state.categories} />
 			<SidebarMain
 		 		setCategory={this.setCategory} 
@@ -82,7 +82,7 @@ class App extends Component {
 			 />
 			 
 		</Col>
-        <Col sm={10}> <ProductsMain  /> </Col> 
+        <Col sm={9}> <ProductsMain category={this.state.category} setCategory={this.setCategory} /> </Col> 
 		
       </Row>
     </Container>

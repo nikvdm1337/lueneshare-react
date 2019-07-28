@@ -8,7 +8,8 @@ export default class ProductsMain extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			products:[],
+      products:[],
+      category:''
 		};
   }
   componentDidMount() {
@@ -22,6 +23,21 @@ export default class ProductsMain extends React.Component {
 			console.log('err', err)
 		})
   }
+
+  componentWillReceiveProps(props) {
+		axios.get(`http://localhost:2000/api/products?category=${this.props.category}`).then((res) => {
+			this.setState({
+				products: res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+  }
+  
+  selectCategory = (id) => {
+		this.props.getMessages(id)
+	}
+
   render() {
     return (
       <div className="productsmain row">
