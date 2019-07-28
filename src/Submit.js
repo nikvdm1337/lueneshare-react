@@ -56,7 +56,7 @@ class Submit extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label for="exampleSelect" sm={2}>Wähle eine Kategorie</Label>
+                <Label for="exampleSelect" sm={2}>Kategorie</Label>
                 <Col sm={5}>
                  
                   <select>
@@ -71,20 +71,20 @@ class Submit extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label for="exampleText" sm={2}>Beschreibung</Label>
+                <Label for="exampleText"  sm={2}>Beschreibung</Label>
                 <Col sm={5}>
-                  <Input type="textarea" name="text" id="exampleText" onChange={(e) => this.setState({description:e.target.value})} />
+                  <Input type="textarea" placeholder="Beschreibe, was du anzubieten hast" name="text" id="submitdescr" onChange={(e) => this.setState({description:e.target.value})} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="exampleText" sm={2}>Bild</Label>
                 <Col sm={5}>
-                  <Input type="textarea" name="text" id="exampleText" onChange={(e) => this.setState({image:e.target.value})} />
+                  <Input type="textarea" placeholder="Link vom Bild einfügen" name="text" id="submitpic" onChange={(e) => this.setState({image:e.target.value})} />
                 </Col>
               </FormGroup>
               <FormGroup check row>
                 <Col sm={{ size: 5, offset: 2 }}>
-                  <Button>Abschicken</Button>
+                  <Button className="submitProductButton">Abschicken</Button>
                 </Col>
               </FormGroup>
             </Form>
