@@ -3,9 +3,10 @@ import './App.css';
 import NavbarMain from './NavMain';
 import SidebarMain from './Sidebar';
 import ProductsMain from './ProductsMain'
-import {Container, Row, Col} from 'reactstrap'; 
+import {Container, Row, Col, Button} from 'reactstrap'; 
 import axios from 'axios';
 import Submit from './Submit'
+import Footer from './Footer'
 
 
 
@@ -22,8 +23,9 @@ class App extends Component {
 			visible: false,
 		};
 	}
-
-	componentDidMount() {
+	// Functions
+	
+	getAllCategories= () => {
 		axios.get(`http://localhost:2000/api/categories`).then((res) => {
 			console.log(res.data)
 			this.setState({
@@ -33,18 +35,35 @@ class App extends Component {
 		}).catch((err) => {
 			console.log('err', err)
 		})
-  }
+	}
 
-  
-	// Functions
 	setCategory = (id) => {
-		console.log('id', id)
 		this.setState({
 			category: id
-		}, () => {
-			console.log('categorySetState', this.state.category)
-		}) 
+		}, () => this.getProductsForCategory())
 	}
+
+	getAllProducts = () => {
+		axios.get(`http://localhost:2000/api/products`).then((res) => {
+			console.log(res.data)
+			this.setState({
+				products: res.data
+			})	
+			
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
+
+	getProductsForCategory = () => {
+		axios.get(`http://localhost:2000/api/products?category=${this.state.category}`).then((res) => {
+			this.setState({
+				products: res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+  }
 
 	
 	createProduct = (obj) => {
@@ -60,12 +79,19 @@ class App extends Component {
 			let products = this.state.products
 			products.unshift(res.data)
 			this.setState({products})
+			this.getProductsForCategory()
 		}).catch((err) => {
 			console.log('err', err)
 		})
 		console.log('state',this.state)
 	
-}
+	}
+
+	componentDidMount() {
+		this.getAllCategories()
+		this.getAllProducts()
+	}
+
 	// Render
 	render() {
 		return (
@@ -73,10 +99,10 @@ class App extends Component {
     <div className="megawrap">
      <NavbarMain sticky={'top'} auth={this.props.auth} />
      <Container>
-      <Row>
+      <Row className="containerSideNavAndProducts">
         <Col sm={3}>
 		{this.state.visible ? <Submit createProduct={this.createProduct} categories={this.state.categories} />:null}
-		<button onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</button>
+		<Button className="toggleSubmitButton" onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</Button>
 			<SidebarMain
 		 		setCategory={this.setCategory} 
 				auth={this.props.auth} 
@@ -85,10 +111,11 @@ class App extends Component {
 			 />
 			 
 		</Col>
-        <Col sm={9}> <ProductsMain category={this.state.category} setCategory={this.setCategory} /> </Col> 
+        <Col sm={9}> <ProductsMain category={this.state.category} products={this.state.products} /> </Col> 
 		
       </Row>
     </Container>
+	<Footer />
     </div>
   );
 }
