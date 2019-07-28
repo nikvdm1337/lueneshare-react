@@ -6,3 +6,9 @@
 .product {
     margin-top: 20px;
 }
+
+.card-img-top {
+    height:400px;
+    width:150px;
+    padding: 30px;
+}

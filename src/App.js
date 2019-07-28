@@ -32,6 +32,8 @@ class App extends Component {
 			console.log('err', err)
 		})
   }
+
+  
 	// Functions
 	setCategory = (id) => {
 		console.log('id', id)
@@ -71,14 +73,17 @@ class App extends Component {
      <Container>
       <Row>
         <Col sm={2}>
+		<Submit  createProduct={this.createProduct} categories={this.state.categories} />
 			<SidebarMain
 		 		setCategory={this.setCategory} 
 				auth={this.props.auth} 
 		 		categories={this.state.categories}
+				 
 			 />
+			 
 		</Col>
         <Col sm={10}> <ProductsMain  /> </Col> 
-		<Submit  createProduct={this.createProduct} categories={this.state.categories} />
+		
       </Row>
     </Container>
     </div>
