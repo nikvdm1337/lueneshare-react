@@ -35,7 +35,7 @@ class Submit extends Component {
     //Render
     render() {
     return (
-            <Form className="submitform"
+            <Form className="submitform" 
               onSubmit={(e) => {
                 e.preventDefault();
                 console.log('submit state', this.state)
