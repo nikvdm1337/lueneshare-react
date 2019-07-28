@@ -21,7 +21,7 @@ componentDidMount() {
               <Card>
                 <CardImg top width="100%" src={this.props.product.image} alt="Product image" />
                 <CardBody>
-                  <CardTitle>{this.props.product.title} @ {this.props.product.category}</CardTitle>
+                  <CardTitle>{this.props.product.title} @ {this.props.product.category.name}</CardTitle>
                   <CardSubtitle>von {this.props.product.author.name}  gepostet um   {moment(this.props.product.date).format('D MMM YY hh:m A')}</CardSubtitle>
                   <CardText>{this.props.product.description}</CardText>
                   <Button>Zum Produkt</Button>
