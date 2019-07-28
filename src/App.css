@@ -3,8 +3,8 @@
 }
 
 body {
-  height:100vh;
   overflow-y:hidden;
+  margin-bottom: 800px;
 }
 
 .container {
