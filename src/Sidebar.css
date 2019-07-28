@@ -1,4 +1,15 @@
 .SidebarMain {
-    border-right: 1px solid black;
     height: 100vh;
+    background-color: #88C440 !important;
+}
+
+ul.nav {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    color: white !important;
+    font-weight: bold;
+}
+
+a.nav-link {
+    color: white;
 }

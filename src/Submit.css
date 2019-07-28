@@ -1,3 +1,31 @@
 .submitform {
-    width:430px;
+    width:auto;
+    padding: 10px;
+}
+
+input.form-control {
+    width: auto;
+}
+
+#submitdescr {
+    width: auto;
+    height: 150px;
+}
+
+#submitpic {
+    width: auto;
+    height: 39px;
+}
+
+label {
+    margin-right: 40px;
+}
+
+.submitProductButton{
+    background-color: #88C440 !important;
+    margin-left: 40px;
+}
+
+.submitProductButton:hover{
+    background-color: #47B049 !important;
 }

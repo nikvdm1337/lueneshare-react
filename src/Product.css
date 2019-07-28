@@ -3,12 +3,54 @@
     overflow-y: auto;
 }
 
+.goToProduct {
+    background-color: #88C440 !important;
+    margin-left: 40px;
+}
+
+.goToProduct:hover {
+   background-color: #47B049 !important;
+}
 .product {
     margin-top: 20px;
+    color:black;
 }
 
 .card-img-top {
     height:400px;
     width:150px;
-    padding: 30px;
+    padding: 10px;
+}
+
+.producttitle {
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
+}
+
+.productcategory {
+    font-style: italic;
+    color:black;
+}
+
+.productauthor {
+    font-weight:bold;
+    color:black;
+}
+
+.date {
+    font-style: italic;
+    color: gray;
+}
+
+.description {
+    font-size: 15px;
+    font-weight: bold;
+    color:black;
+}
+
+.card {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
 }
