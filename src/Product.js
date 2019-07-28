@@ -9,13 +9,9 @@ import moment from 'moment'
 
 export default class Product extends React.Component {
  
-  
-componentDidMount() {
-  console.log(this.props.product)
-}
   render() {
     return (
-          
+  
           <Col sm={6} className="product">
             <CardGroup>
               <Card>
@@ -25,12 +21,12 @@ componentDidMount() {
                   <CardSubtitle>von <span className="productauthor"> {this.props.product.author.name}</span> gepostet um <span className="date"> {moment(this.props.product.date).format('D MMM YY hh:m A')} </span></CardSubtitle>
                   <div className="description">Beschreibung:</div>
                   <CardText>{this.props.product.description}</CardText>
-                  <Button className="goToProduct">Zum Produkt</Button>
+                  <Button onClick={ () => this.props.selectProductForFullscreenView(this.props.product._id) } className="goToProduct">Zum Produkt</Button>
                 </CardBody>
               </Card>
               </CardGroup>
               </Col>
-            
+             
              
               
            

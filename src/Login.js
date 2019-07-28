@@ -39,7 +39,7 @@ export default class Login extends React.Component {
 				this.props.auth()
 			}
 		}).catch((err) => {
-			console.log('err!!!!', err)
+			console.log('err', err)
 		})
 	}
 

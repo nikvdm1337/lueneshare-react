@@ -9,8 +9,6 @@ import Submit from './Submit'
 import Footer from './Footer'
 
 
-
-
 class App extends Component {
 	// Data
 	constructor() {
@@ -24,10 +22,9 @@ class App extends Component {
 		};
 	}
 	// Functions
-	
+
 	getAllCategories= () => {
 		axios.get(`http://localhost:2000/api/categories`).then((res) => {
-			console.log(res.data)
 			this.setState({
 				categories: res.data
 			})	
@@ -45,7 +42,6 @@ class App extends Component {
 
 	getAllProducts = () => {
 		axios.get(`http://localhost:2000/api/products`).then((res) => {
-			console.log(res.data)
 			this.setState({
 				products: res.data
 			})	
@@ -67,7 +63,6 @@ class App extends Component {
 
 	
 	createProduct = (obj) => {
-		console.log('object!', obj)
 		axios.post(
 			`http://localhost:2000/api/products`,
 			obj,
@@ -83,7 +78,6 @@ class App extends Component {
 		}).catch((err) => {
 			console.log('err', err)
 		})
-		console.log('state',this.state)
 	
 	}
 

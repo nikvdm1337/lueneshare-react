@@ -4,32 +4,22 @@ import ChooseCategory from './ChooseCategory'
 import './Submit.css'
 
 class Submit extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     
     this.state = {
       title:'',
       description: '',
-      category: '',
+      category: this.props.categories[0]._id || '',
       image:'',
     }
   }
-	// Lifecycle
-  componentDidUpdate(prevProps) {
-    if (this.props.categories !== prevProps.categories) {
-      this.setState({
-        category: (this.props.categories[0] && this.props.categories[0].name) || []
-      })
-    } 
-  }
+  
 
   setCategory = (id) => {
-		console.log('id', id)
 		this.setState({
 			category: id
-		}, () => {
-			console.log('categorySetState', this.state.category)
-		}) 
+		})
 	}
 
     //Render
@@ -38,7 +28,6 @@ class Submit extends Component {
             <Form className="submitform" 
               onSubmit={(e) => {
                 e.preventDefault();
-                console.log('submit state', this.state)
                 this.props.createProduct({
                   title: this.state.title, 
                   description: this.state.description, 

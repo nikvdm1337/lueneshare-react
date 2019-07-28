@@ -10,7 +10,6 @@ export default class SidebarMain extends React.Component {
 
   
   render() {
-    console.log('sidebar',this.props)
     return (
       <div className="SidebarMain">
         <Nav vertical>

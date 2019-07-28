@@ -9,7 +9,6 @@ class Category extends Component {
 
 	// Render
 	render() {
-		console.log('sidebarcategory', this.props)
 		return (
 			<Nav.Link onClick={() => this.props.setCategory(this.props.categoryID)}>{this.props.category.name}</Nav.Link>
 		)
