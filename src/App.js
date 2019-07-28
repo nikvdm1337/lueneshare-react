@@ -9,6 +9,7 @@ import Submit from './Submit'
 
 
 
+
 class App extends Component {
 	// Data
 	constructor() {
@@ -18,6 +19,7 @@ class App extends Component {
 			categories:[],
 			products: [],
 			newProduct: null,
+			visible: false,
 		};
 	}
 
@@ -73,7 +75,8 @@ class App extends Component {
      <Container>
       <Row>
         <Col sm={3}>
-		<Submit  createProduct={this.createProduct} categories={this.state.categories} />
+		{this.state.visible ? <Submit createProduct={this.createProduct} categories={this.state.categories} />:null}
+		<button onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</button>
 			<SidebarMain
 		 		setCategory={this.setCategory} 
 				auth={this.props.auth} 
