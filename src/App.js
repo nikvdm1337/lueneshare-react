@@ -19,15 +19,35 @@ class App extends Component {
 			products: [],
 			newProduct: null,
 			visible: false,
+			messages: [],
+			showSidebar: true
 		};
 	}
 	// Functions
+
+	hideSidebar = () => {
+		this.setState({
+			showSidebar: false
+		})
+	}
 
 	getAllCategories= () => {
 		axios.get(`http://localhost:2000/api/categories`).then((res) => {
 			this.setState({
 				categories: res.data
 			})	
+			
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
+
+	getAllMessages = () => {
+		axios.get('http://localhost:2000/api/messages').then((res) => {
+			console.log('messages', res.data)
+			this.setState({
+				messages: res.data
+			});
 			
 		}).catch((err) => {
 			console.log('err', err)
@@ -84,6 +104,7 @@ class App extends Component {
 	componentDidMount() {
 		this.getAllCategories()
 		this.getAllProducts()
+		this.getAllMessages()
 	}
 
 	// Render
@@ -97,15 +118,16 @@ class App extends Component {
         <Col sm={3}>
 		{this.state.visible ? <Submit createProduct={this.createProduct} categories={this.state.categories} />:null}
 		<Button className="toggleSubmitButton" onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</Button>
-			<SidebarMain
+				<SidebarMain
 		 		setCategory={this.setCategory} 
 				auth={this.props.auth} 
 		 		categories={this.state.categories}
 				 
-			 />
+			 	/>
+			
 			 
 		</Col>
-        <Col sm={9}> <ProductsMain category={this.state.category} products={this.state.products} /> </Col> 
+        <Col sm={9}> <ProductsMain category={this.state.category} products={this.state.products} messages={this.state.messages} hideSidebar={this.hideSidebar} /> </Col> 
 		
       </Row>
     </Container>

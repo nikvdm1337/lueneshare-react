@@ -18,6 +18,7 @@ export default class ProductsMain extends React.Component {
 			showAll: false,
 			selectedProduct: id
 		})
+		this.props.hideSidebar()
 	}
 
 	showAllProducts = () => {
@@ -42,7 +43,7 @@ export default class ProductsMain extends React.Component {
 			return product._id === this.state.selectedProduct
 		}) //Returns an array
 		return (
-			<FullScreenProduct product={chosenProduct[0]} showAllProducts={this.showAllProducts}/>
+			<FullScreenProduct product={chosenProduct[0]} showAllProducts={this.showAllProducts} messages={this.props.messages}/>
 		)
 	}
 
