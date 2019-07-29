@@ -1,0 +1,14 @@
+.productsingle {
+    color:#212528;
+    margin-top: 20px;
+    border-radius: 50px;
+}
+
+.productsingle .card-img-top {
+    height: 20vw;
+    object-fit: scale-down;
+}
+
+.card-body {
+    justify-content: center;
+}
