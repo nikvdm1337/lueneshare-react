@@ -11,7 +11,7 @@ class Submit extends Component {
       title:'',
       description: '',
       category: this.props.categories[0]._id || '',
-      image:'',
+      image:'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
     }
   }
   
