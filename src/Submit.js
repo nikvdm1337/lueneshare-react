@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import ChooseCategory from './ChooseCategory'
 import './Submit.css'
 
@@ -11,7 +11,7 @@ class Submit extends Component {
       title:'',
       description: '',
       category: this.props.categories[0]._id || '',
-      image:'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image',
+      image:'https://screenshotlayer.com/images/assets/placeholder.png',
     }
   }
   
@@ -25,7 +25,8 @@ class Submit extends Component {
     //Render
     render() {
     return (
-            <Form className="submitform" 
+      <Modal isOpen={this.props.visible} toggle={this.props.toggleSubmitForm} className={this.props.className}>
+       <Form className="submitform" 
               onSubmit={(e) => {
                 e.preventDefault();
                 this.props.createProduct({
@@ -33,10 +34,14 @@ class Submit extends Component {
                   description: this.state.description, 
                   category: this.state.category,
                   image: this.state.image
-                  })
+                  });
+                  this.props.toggleSubmitForm()
                 }
               }
             >
+      <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+      <ModalBody>
+     
 
               <FormGroup row>
                 <Label for="exampleEmail" sm={2}>Titel</Label>
@@ -71,12 +76,15 @@ class Submit extends Component {
                   <Input type="textarea" placeholder="Link vom Bild einfügen" name="text" id="submitpic" onChange={(e) => this.setState({image:e.target.value})} />
                 </Col>
               </FormGroup>
-              <FormGroup check row>
-                <Col sm={{ size: 5, offset: 2 }}>
-                  <Button className="submitProductButton">Abschicken</Button>
-                </Col>
-              </FormGroup>
-            </Form>
+                
+            </ModalBody>
+      <ModalFooter>
+        <Button type="submit" className="submitProductButton">Abschicken</Button>
+        <Button color="secondary" onClick={this.props.toggleSubmitForm}>Cancel</Button>
+      </ModalFooter>
+      </Form>
+    </Modal>
+          
           );
   } 
 }

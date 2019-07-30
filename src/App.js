@@ -20,14 +20,14 @@ class App extends Component {
 			newProduct: null,
 			visible: false,
 			messages: [],
-			showSidebar: true
+			showSidebar: true,
 		};
 	}
 	// Functions
 
 	hideSidebar = () => {
 		this.setState({
-			showSidebar: false
+			showSidebusersar: false
 		})
 	}
 
@@ -41,6 +41,7 @@ class App extends Component {
 			console.log('err', err)
 		})
 	}
+
 
 	getAllMessages = () => {
 		axios.get('http://localhost:2000/api/messages').then((res) => {
@@ -101,6 +102,11 @@ class App extends Component {
 	
 	}
 
+	toggleSubmitForm = () => {
+		this.setState({
+			visible: !this.state.visible
+		})
+	}
 	componentDidMount() {
 		this.getAllCategories()
 		this.getAllProducts()
@@ -116,8 +122,8 @@ class App extends Component {
      <Container>
       <Row className="containerSideNavAndProducts">
         <Col sm={3}>
-		{this.state.visible ? <Submit createProduct={this.createProduct} categories={this.state.categories} />:null}
-		<Button className="toggleSubmitButton" onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</Button>
+		{this.state.visible ? <Submit toggleSubmitForm={this.toggleSubmitForm} visible={this.state.visible} createProduct={this.createProduct} categories={this.state.categories} />:null}
+		<Button className="toggleSubmitButton" onClick={ this.toggleSubmitForm }>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</Button>
 				<SidebarMain
 		 		setCategory={this.setCategory} 
 				auth={this.props.auth} 
@@ -127,7 +133,14 @@ class App extends Component {
 			
 			 
 		</Col>
-        <Col sm={9}> <ProductsMain category={this.state.category} products={this.state.products} messages={this.state.messages} hideSidebar={this.hideSidebar} /> </Col> 
+        <Col sm={9}> <ProductsMain 
+					category={this.state.category} 
+					products={this.state.products} 
+					messages={this.state.messages} 
+					hideSidebar={this.hideSidebar} 
+						
+					/> 
+		</Col> 
 		
       </Row>
     </Container>
