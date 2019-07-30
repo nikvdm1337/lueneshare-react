@@ -2,6 +2,8 @@ import React from 'react';
 import Product from './Product'
 import './Product.css'
 import {FullScreenProduct} from './FullScreenProduct'
+import axios from 'axios'
+import './ProductsMain.css'
 
 export default class ProductsMain extends React.Component {
 	// Data
@@ -10,8 +12,29 @@ export default class ProductsMain extends React.Component {
 	  this.state = {
 		showAll: true,
 		selectedProduct: '',
+		messages:[],
 	  }
   }
+
+	createMessage = (e, text) => {
+		e.preventDefault()
+		let message = {
+			body: text,
+		}
+		axios.post(
+			'http://localhost:2000/api/messages',
+			message,
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}}
+		).then((res) => {
+			let messages = this.state.messages
+			messages.push(res.data)
+			this.setState({messages})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
 
 	selectProductForFullscreenView = (id) => {
 		this.setState({
@@ -43,7 +66,11 @@ export default class ProductsMain extends React.Component {
 			return product._id === this.state.selectedProduct
 		}) //Returns an array
 		return (
-			<FullScreenProduct product={chosenProduct[0]} showAllProducts={this.showAllProducts} messages={this.props.messages}/>
+			<FullScreenProduct 
+			createMessage={this.createMessage}
+			product={chosenProduct[0]} 
+			showAllProducts={this.showAllProducts} 
+			messages={this.props.messages}/>
 		)
 	}
 
