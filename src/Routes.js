@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Login from './Login'
 import App from './App'
 import Signup from './Signup'
-import Submit from './Submit'
 import Profile from './Profile'
 
 class Routes extends Component {

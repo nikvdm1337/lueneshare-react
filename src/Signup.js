@@ -9,7 +9,7 @@ class Signup extends Component {
 		email: '',
     password: '',
     city:'',
-    profilepic:'',
+    image:'',
   }
   
 	// Functions
@@ -30,7 +30,7 @@ class Signup extends Component {
   }
   
   changePic = (e) => {
-		this.setState({profilepic: e.target.value})
+		this.setState({image: e.target.value})
 	}
 
 	signup = (e) => {
@@ -63,7 +63,7 @@ class Signup extends Component {
                       <input type="password" className="form-control" placeholder="Password..." value={this.state.password} onChange={(e) => this.changePassword(e)} />
                     </div>
                     <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Link zu deinem Profilbild" value={this.state.profilepic} onChange={(e) => this.changePic(e)} />
+                    <input type="file" name="file" onChange={this.addFile}/>
                     </div>
                     <div className="form-group">
                       <input type="text" className="form-control" placeholder="Dein Ort.." value={this.state.city} onChange={(e) => this.changeCity(e)} />
