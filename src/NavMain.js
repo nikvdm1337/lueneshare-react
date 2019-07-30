@@ -23,7 +23,6 @@ class NavMain extends Component {
       <Navbar>
         <Navbar.Brand href="/">LüneShare</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/submit">Stell' was rein!</Nav.Link>
             <Nav.Link href="/profile">Mein Profil</Nav.Link>
             <Nav.Link href="/signup">Registrier dich</Nav.Link>
             {this.checkAuth() ? <Logout /> : <Login auth={this.props.auth} />}
