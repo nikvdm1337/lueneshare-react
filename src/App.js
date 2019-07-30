@@ -27,7 +27,7 @@ class App extends Component {
 
 	hideSidebar = () => {
 		this.setState({
-			showSidebusersar: false
+			showSidebar: false
 		})
 	}
 
@@ -84,6 +84,15 @@ class App extends Component {
 
 	
 	createProduct = (obj) => {
+
+		let form_holder = new FormData()
+		form_holder.append('category', this.props.category)
+		form_holder.append('name', obj.name)
+		form_holder.append('title', obj.title)
+		form_holder.append('description', obj.description)
+
+		// console.log('form_holder',form_holder)
+		
 		axios.post(
 			`http://localhost:2000/api/products`,
 			obj,
