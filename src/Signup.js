@@ -7,8 +7,11 @@ class Signup extends Component {
 	state = {
 		name: '',
 		email: '',
-		password: ''
-	}
+    password: '',
+    city:'',
+    profilepic:'',
+  }
+  
 	// Functions
 	changeName = (e) => {
 		this.setState({name: e.target.value})
@@ -20,6 +23,14 @@ class Signup extends Component {
 
 	changePassword = (e) => {
 		this.setState({password: e.target.value})
+  }
+  
+  changeCity = (e) => {
+		this.setState({city: e.target.value})
+  }
+  
+  changePic = (e) => {
+		this.setState({profilepic: e.target.value})
 	}
 
 	signup = (e) => {
@@ -50,6 +61,12 @@ class Signup extends Component {
                     </div>
                     <div className="form-group">
                       <input type="password" className="form-control" placeholder="Password..." value={this.state.password} onChange={(e) => this.changePassword(e)} />
+                    </div>
+                    <div className="form-group">
+                      <input type="text" className="form-control" placeholder="Link zu deinem Profilbild" value={this.state.profilepic} onChange={(e) => this.changePic(e)} />
+                    </div>
+                    <div className="form-group">
+                      <input type="text" className="form-control" placeholder="Dein Ort.." value={this.state.city} onChange={(e) => this.changeCity(e)} />
                     </div>
                     <button type="submit" className="btn btn-success">Signup</button>
                   </form>
