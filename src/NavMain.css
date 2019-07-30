@@ -6,6 +6,6 @@ nav {
     color: white;
 }
 
-a.navbar-brand, a.nav-link {
+a.navbar-brand{
     color: white !important;
 }

@@ -1,0 +1,29 @@
+.ProfileContent {
+    border-left: 1px solid black;
+    padding: 40px;
+}
+
+.profpic{
+    margin: 80px;
+    height:20vh;
+    border-radius: 20px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+.ProfilePicture h3 {
+    font-style:italic;
+    margin:10px;
+}
+
+.profileContainer {
+    background-color: lightgray;
+    font-family: 'Indie Flower', cursive;
+    border-radius:20px;
+    max-width:50%;
+    margin: 8%;
+    margin-left: 15%;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+}
