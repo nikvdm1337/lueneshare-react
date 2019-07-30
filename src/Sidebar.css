@@ -1,15 +1,19 @@
 .SidebarMain {
     height: 100vh;
-    background-color: #88C440 !important;
+    background-color: white !important;
 }
 
 ul.nav {
     font-family: 'Indie Flower', cursive;
     font-size: 20px;
-    color: white !important;
+    color: black !important;
     font-weight: bold;
 }
 
 a.nav-link {
-    color: white;
+    color: black;
+}
+
+.SideBarLinks {
+    color:black !important;
 }
