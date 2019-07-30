@@ -3,7 +3,7 @@ html {
     min-height: 100%;
   }
   
-  .footer {
+.footer {
     position: sticky;
     bottom:0;
     width: 100%;
@@ -12,32 +12,32 @@ html {
     text-align: center;
   }
   
-  .container{
+.container{
     margin-top: 50px;
     color: #fff;
     width: 100%;
   }
   
-  .fa-twitter {
-      color: #4099FF;
+.fa-twitter {
+    color: #4099FF;
   }
   
-  .fa-linkedin {
-      color: #007bb6;
+.fa-linkedin {
+    color: #007bb6;
   }
   
-  .fa {
-      opacity: 0.7;
-      transition: 0.2s;
-      -webkit-transition: 0.2s;
+.fa {
+    opacity: 0.7;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
   }
 
-  .fa-github{
+.fa-github{
     font-size: 48px;
   }
   
-  .fa:hover{
-      opacity: 1;
-      transition: 1s;
-      -webkit-transition: 1s;
+.fa:hover{
+    opacity: 1;
+    transition: 1s;
+    -webkit-transition: 1s;
   }
