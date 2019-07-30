@@ -4,6 +4,7 @@ import Login from './Login'
 import App from './App'
 import Signup from './Signup'
 import Submit from './Submit'
+import Profile from './Profile'
 
 class Routes extends Component {
 	// Data
@@ -28,9 +29,8 @@ class Routes extends Component {
 				<Switch>
 					<Route path="/login" component={() => <Login auth={this.auth} />} />
 					<Route path="/signup" component ={() => <Signup auth={this.auth} />} />
-					<Route path="/submit" component = {() => <Submit auth={this.auth}/>} />
+					<Route path="/profile" component = {() => <Profile auth={this.auth}/>} />
                     <Route path="/" component={() => <App auth={this.auth} />} />
-					
 				</Switch>
 			</BrowserRouter>
 		)
