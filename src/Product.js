@@ -18,7 +18,7 @@ export default class Product extends React.Component {
                 <CardImg top width="100%" src={this.props.product.image} alt="Product image" />
                 <CardBody>
                   <CardTitle className="producttitle">{this.props.product.title} - <span className="productcategory">{this.props.product.category.name}</span></CardTitle>
-                  <CardSubtitle>von <span className="productauthor"> {this.props.product.author.name}</span> gepostet um <span className="date"> {moment(this.props.product.date).format('D MMM YY hh:m A')} </span></CardSubtitle>
+                  <CardSubtitle>von <span className="productauthor"> {this.props.product.author.name}</span> gepostet um <span className="date"> {moment(this.props.product.date).format('D MMM YY hh:mm A')} </span></CardSubtitle>
                   <div className="description">Beschreibung:</div>
                   <CardText>{this.props.product.description}</CardText>
                   <Button onClick={ () => this.props.selectProductForFullscreenView(this.props.product._id) } className="goToProduct">Zum Produkt</Button>
@@ -26,12 +26,6 @@ export default class Product extends React.Component {
               </Card>
               </CardGroup>
               </Col>
-             
-             
-              
-           
-              
-
     )
   }
 }
