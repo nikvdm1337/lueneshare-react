@@ -3,7 +3,7 @@ import './App.css';
 import NavbarMain from './NavMain';
 import SidebarMain from './Sidebar';
 import ProductsMain from './ProductsMain'
-import {Container, Row, Col, Button} from 'reactstrap'; 
+import {Container, Row, Col, Button, Spinner} from 'reactstrap'; 
 import axios from 'axios';
 import Submit from './Submit'
 import Footer from './Footer'
@@ -21,6 +21,7 @@ class App extends Component {
 			visible: false,
 			messages: [],
 			showSidebar: true,
+			isSpinner: false
 		};
 	}
 	// Functions
@@ -84,18 +85,20 @@ class App extends Component {
 
 	
 	createProduct = (obj) => {
-
+		this.setState({
+			isSpinner:true,
+		})
 		let form_holder = new FormData()
-		form_holder.append('category', this.props.category)
-		form_holder.append('name', obj.name)
+		form_holder.append('category', obj.category)
 		form_holder.append('title', obj.title)
 		form_holder.append('description', obj.description)
+		form_holder.append('file', obj.file)
 
 		// console.log('form_holder',form_holder)
 		
 		axios.post(
 			`http://localhost:2000/api/products`,
-			obj,
+			form_holder,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
@@ -104,6 +107,9 @@ class App extends Component {
 			let products = this.state.products
 			products.unshift(res.data)
 			this.setState({products})
+			this.setState({
+				isSpinner: false,
+			})
 			this.getProductsForCategory()
 		}).catch((err) => {
 			console.log('err', err)
@@ -133,12 +139,14 @@ class App extends Component {
         <Col sm={3}>
 		{this.state.visible ? <Submit toggleSubmitForm={this.toggleSubmitForm} visible={this.state.visible} createProduct={this.createProduct} categories={this.state.categories} />:null}
 		<Button className="toggleSubmitButton" onClick={ this.toggleSubmitForm }>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</Button>
+		{this.state.isSpinner === true ? <Spinner color="success" /> : null}
 				<SidebarMain
 		 		setCategory={this.setCategory} 
 				auth={this.props.auth} 
 		 		categories={this.state.categories}
 				 
 			 	/>
+				
 			
 			 
 		</Col>
