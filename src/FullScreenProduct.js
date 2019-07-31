@@ -15,7 +15,7 @@ export const FullScreenProduct = (props) => {
         <CardGroup>
           <Card>
             <CardBody sm={2}>
-            <CardImg sm={2}top width="100%" src={props.product.image} alt="Product image" />
+            <CardImg sm={2}top width="100%" src={props.product.file} alt="Product image" />
               <CardTitle className="producttitle">{props.product.title} - <span className="productcategory">{props.product.category.name}</span></CardTitle>
               <CardSubtitle>von <span className="productauthor"> {props.product.author.name}</span> gepostet um <span className="date"> {moment(props.product.date).format('D MMM YY hh:m A')} </span></CardSubtitle>
               <div className="description">Beschreibung:</div>
