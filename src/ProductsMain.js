@@ -29,7 +29,7 @@ export default class ProductsMain extends React.Component {
 			}}
 		).then((res) => {
 			let messages = this.state.messages
-			messages.push(res.data)
+			messages.unshift(res.data)
 			this.setState({messages})
 		}).catch((err) => {
 			console.log('err', err)
