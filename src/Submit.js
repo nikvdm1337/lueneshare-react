@@ -11,7 +11,7 @@ class Submit extends Component {
       title:'',
       description: '',
       category: this.props.categories[0]._id || '',
-      image:'https://screenshotlayer.com/images/assets/placeholder.png',
+      file:'https://screenshotlayer.com/images/assets/placeholder.png',
     }
   }
   
@@ -24,10 +24,17 @@ class Submit extends Component {
   
   addFile = (e) => {
 		this.setState({
-			image: e.target.files[0]
+			file: e.target.files[0]
 		})
 	}
 
+  checkAuth = () => {
+		if (localStorage.getItem('token')) {
+			return true
+		} else {
+			return false
+		}
+	}
 
     //Render
     render() {
@@ -40,18 +47,19 @@ class Submit extends Component {
                   title: this.state.title, 
                   description: this.state.description, 
                   category: this.state.category,
-                  image: this.state.image
+                  file: this.state.file
+                  
                   });
                   this.props.toggleSubmitForm()
                 }
               }
             >
-      <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+      <ModalHeader toggle={this.toggle}>Stell' was rein!</ModalHeader>
       <ModalBody>
      
 
               <FormGroup row>
-                <Label for="exampleEmail" sm={2}>Titel</Label>
+                <Label for="exampleEmail" sm={2}>Stell' was rein!</Label>
                 <Col sm={5}>
                   <Input type="text" name="Title" placeholder="Trag 'nen Titel ein" onChange={(e) => this.setState({title:e.target.value})}/>
                 </Col>
@@ -84,8 +92,10 @@ class Submit extends Component {
                 
             </ModalBody>
       <ModalFooter>
+        {this.checkAuth() ? 
         <Button type="submit" className="submitProductButton">Abschicken</Button>
-        <Button color="secondary" onClick={this.props.toggleSubmitForm}>Cancel</Button>
+        :<Button variant="secondary" disabled>Meld dich erst an</Button>}
+        <Button color="secondary" onClick={this.props.toggleSubmitForm}>Abbrechen</Button>
       </ModalFooter>
       </Form>
     </Modal>
