@@ -9,3 +9,7 @@ nav {
 a.navbar-brand{
     color: white !important;
 }
+
+div.mr-auto.navbar-nav a.nav-link {
+    color:white !important;
+}
