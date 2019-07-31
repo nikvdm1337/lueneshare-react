@@ -104,6 +104,7 @@ class App extends Component {
 			}}
 		).then((res) => {
 			console.log('res', res)
+			console.log('sent file', obj.file.name)
 			let products = this.state.products
 			products.unshift(res.data)
 			this.setState({products})
@@ -136,7 +137,7 @@ class App extends Component {
      <NavbarMain sticky={'top'} auth={this.props.auth} />
      <Container>
       <Row className="containerSideNavAndProducts">
-        <Col sm={3}>
+        <Col sm={2}>
 		{this.state.visible ? <Submit toggleSubmitForm={this.toggleSubmitForm} visible={this.state.visible} createProduct={this.createProduct} categories={this.state.categories} />:null}
 		<Button className="toggleSubmitButton" onClick={ this.toggleSubmitForm }>{this.state.visible ? "Ne doch nicht":"Stell was rein"}!</Button>
 		{this.state.isSpinner === true ? <Spinner color="success" /> : null}
@@ -150,7 +151,7 @@ class App extends Component {
 			
 			 
 		</Col>
-        <Col sm={9}> <ProductsMain 
+        <Col sm={	10}> <ProductsMain 
 					category={this.state.category} 
 					products={this.state.products} 
 					messages={this.state.messages} 
