@@ -30,7 +30,7 @@ class NewMessage extends Component {
 					<div className="input-group">
 						<input type="text" className="form-control" placeholder="New Message..." value={this.state.text} onChange={(e) => this.changeText(e)} />
 						<div className="input-group-append">
-							<button type="submit" className="btn btn-success">Send</button>
+							<button type="submit" className="btn btn-success sendComment">Send</button>
 						</div>
 					</div>
 				</form>
