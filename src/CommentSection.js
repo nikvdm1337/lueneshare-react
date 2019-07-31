@@ -8,9 +8,23 @@ import NewMessage from './NewMessage'
 class CommentSection extends Component {
 
     state = {
-        messages: this.props.messages
+        messages: this.props.messages,
+        showNewMessage: false,
     }
     
+    checkAuth = () => {
+		if (localStorage.getItem('token')) {
+			this.setState({
+                showNewMessage: true,
+            })
+		} else {
+			return false
+		}
+    }
+
+    componentDidMount() {
+        this.checkAuth()
+    }
     
     render() {
         console.log(this.state.messages)
@@ -24,7 +38,7 @@ class CommentSection extends Component {
 						})
 					}
 				</div>
-                <NewMessage createMessage={this.props.createMessage} />
+                {this.state.showNewMessage ? <NewMessage createMessage={this.props.createMessage} /> : null}
             </Col>
             
         );
