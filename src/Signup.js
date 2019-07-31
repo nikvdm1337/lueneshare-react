@@ -9,7 +9,7 @@ class Signup extends Component {
 		email: '',
     password: '',
     city:'',
-    image:'',
+    file:'',
   }
   
 	// Functions
@@ -29,13 +29,22 @@ class Signup extends Component {
 		this.setState({city: e.target.value})
   }
   
-  changePic = (e) => {
-		this.setState({image: e.target.value})
+  addFile = (e) => {
+		this.setState({
+			file: e.target.files[0]
+		})
 	}
 
-	signup = (e) => {
-		e.preventDefault()
-		axios.post('http://localhost:2000/api/signup', this.state).then((res) => {
+	signup = (e, file) => {
+    e.preventDefault()
+    let form_holder = new FormData()
+		form_holder.append('name', this.state.name)
+		form_holder.append('email', this.state.email)
+    form_holder.append('city', this.state.city)
+    form_holder.append('password', this.state.password)
+    form_holder.append('file', file)
+    
+		axios.post('http://localhost:2000/api/signup', form_holder).then((res) => {
 			localStorage.setItem('token', res.data.token)
 			this.props.auth()
 		}).catch((err) => {
