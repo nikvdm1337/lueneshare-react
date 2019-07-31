@@ -1,15 +1,16 @@
 nav {
     font-family: 'Indie Flower', cursive;
     font-size: 20px;
-    background-color: #4F372D !important;
+    background-color: #B8D870 !important;
     font-weight: bold;
     color: white;
+    border-radius:0px 0px 50px 50px;
 }
 
 a.navbar-brand{
-    color: white !important;
+    color:#5C5F6D !important;
 }
 
 div.mr-auto.navbar-nav a.nav-link {
-    color:white !important;
+    color:#5C5F6D !important;
 }

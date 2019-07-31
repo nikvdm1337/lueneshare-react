@@ -2,8 +2,12 @@
     color:#212528;
     margin-top: 20px;
     border-radius: 50px;
+    
 }
 
+div.col-sm-10 {
+    background-color: #F2F3F7;
+}
 .commentSection{
     background-color:white;
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
@@ -18,4 +22,10 @@
 
 .card-body {
     justify-content: center;
+}
+
+.onFullScreenButton {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }

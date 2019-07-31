@@ -1,3 +1,10 @@
 .productsmain {
     height:88vh !important;
+    background-color: #F2F3F7;
+}
+
+@media(max-width: 300px) and (min-width: 500px) {
+	.productsmain {
+	grid-template-columns: 1fr !important;
+}
 }

@@ -3,3 +3,9 @@
     bottom:2%;
     width:calc(100% - 20px);
 }
+
+.sendComment{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}

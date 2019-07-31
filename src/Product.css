@@ -16,10 +16,13 @@
     color:black;
 }
 
-.card-img-top {
-    height:400px;
-    width:150px;
-    padding: 10px;
+.TopImage {
+    min-height:50vh;
+    width:auto;
+    margin: 10px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .producttitle {
@@ -53,4 +56,10 @@
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+}
+
+.goToProduct{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }

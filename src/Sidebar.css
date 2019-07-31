@@ -1,19 +1,28 @@
 .SidebarMain {
     height: 100vh;
-    background-color: white !important;
+    background-color: #F2F3F7 !important
 }
 
 ul.nav {
     font-family: 'Indie Flower', cursive;
     font-size: 20px;
-    color: black !important;
+    color: #5C5F6D !important;
     font-weight: bold;
 }
 
 a.nav-link {
-    color: black;
+    color: #5C5F6D;
 }
 
 .SideBarLinks {
-    color:black !important;
+    color:#5C5F6D !important;
+}
+
+.myShares {
+    color: #5C5F6D !important;
+    font-family: 'Indie Flower', cursive;
+}
+
+div.col-sm-2 {
+    background-color: #F2F3F7 !important
 }
