@@ -18,7 +18,6 @@ class CommentSection extends Component {
 		}
     }
     componentWillReceiveProps(props) {
-        console.log('props', props)
         this.setState({
             messages: props.messages
         })
