@@ -8,6 +8,8 @@ import moment from 'moment'
 
 
 export default class Product extends React.Component {
+
+ 
  
   render() {
 
