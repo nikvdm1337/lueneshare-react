@@ -4,24 +4,25 @@ import { Col } from 'reactstrap';
 import Message from './Message'
 import NewMessage from './NewMessage'
 
-
 class CommentSection extends Component {
 
     state = {
         messages: this.props.messages,
-        showNewMessage: false,
     }
     
     checkAuth = () => {
 		if (localStorage.getItem('token')) {
-			this.setState({
-                showNewMessage: true,
-            })
+			return true
 		} else {
 			return false
 		}
     }
-
+    componentWillReceiveProps(props) {
+        console.log('props', props)
+        this.setState({
+            messages: props.messages
+        })
+    }
     componentDidMount() {
         this.checkAuth()
     }
@@ -38,7 +39,7 @@ class CommentSection extends Component {
 						})
 					}
 				</div>
-                {this.state.showNewMessage ? <NewMessage createMessage={this.props.createMessage} /> : null}
+                {this.checkAuth() ? <NewMessage createMessage={this.props.createMessage} /> : null}
             </Col>
             
         );
