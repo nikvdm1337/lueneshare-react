@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Container, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import './LandingPage.css'
 
 class LandingPage extends Component {

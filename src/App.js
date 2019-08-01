@@ -33,7 +33,7 @@ class App extends Component {
 	}
 
 	getAllCategories= () => {
-		axios.get(`http://localhost:2000/api/categories`).then((res) => {
+		axios.get(`${process.env.REACT_APP_API}/api/categories`).then((res) => {
 			this.setState({
 				categories: res.data
 			})	
@@ -139,7 +139,7 @@ class App extends Component {
 			
 			 
 		</Col>
-        <Col sm={	10}> <ProductsMain 
+        <Col sm={10}> <ProductsMain 
 					category={this.state.category} 
 					products={this.state.products} 
 					messages={this.state.messages} 
