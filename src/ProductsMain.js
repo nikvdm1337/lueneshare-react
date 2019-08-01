@@ -23,7 +23,7 @@ export default class ProductsMain extends Component {
 			product: this.state.selectedProduct
 		}
 		axios.post(
-			'http://localhost:2000/api/messages',
+			`${process.env.REACT_APP_API}/api/messages`,
 			message,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem('token')}`

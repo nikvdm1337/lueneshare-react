@@ -44,7 +44,7 @@ class Signup extends Component {
     form_holder.append('password', this.state.password)
     form_holder.append('file', file)
     
-		axios.post('http://localhost:2000/api/signup', form_holder).then((res) => {
+		axios.post(`${process.env.REACT_APP_API}`, form_holder).then((res) => {
 			localStorage.setItem('token', res.data.token)
 			this.props.auth()
 		}).catch((err) => {

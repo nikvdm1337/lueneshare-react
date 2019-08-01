@@ -13,7 +13,7 @@ class FullScreenProduct extends React.Component {
   }
 
   getAllMessages = () => {
-		axios.get(`http://localhost:2000/api/messages?product=${this.props.product._id}`).then((res) => {
+		axios.get(`${process.env.REACT_APP_API}/api/messages?product=${this.props.product._id}`).then((res) => {
 			console.log('messages', res.data)
 			this.setState({
 				messages: res.data

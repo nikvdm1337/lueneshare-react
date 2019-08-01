@@ -12,7 +12,7 @@ class Profile extends Component {
     
 
     getProfile = () => {
-		axios.get('http://localhost:2000/api/profile', 
+		axios.get(`${process.env.REACT_APP_API}/api/profile`, 
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}

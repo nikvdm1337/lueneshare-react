@@ -52,7 +52,7 @@ class App extends Component {
 	}
 
 	getAllProducts = () => {
-		axios.get(`http://localhost:2000/api/products`).then((res) => {
+		axios.get(`${process.env.REACT_APP_API}/api/products`).then((res) => {
 			this.setState({
 				products: res.data
 			})	
@@ -63,7 +63,7 @@ class App extends Component {
 	}
 
 	getProductsForCategory = () => {
-		axios.get(`http://localhost:2000/api/products?category=${this.state.category}`).then((res) => {
+		axios.get(`${process.env.REACT_APP_API}/api/products?category=${this.state.category}`).then((res) => {
 			this.setState({
 				products: res.data
 			})
@@ -86,7 +86,7 @@ class App extends Component {
 		// console.log('form_holder',form_holder)
 		
 		axios.post(
-			`http://localhost:2000/api/products`,
+			`${process.env.REACT_APP_API}/api/products`,
 			form_holder,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
