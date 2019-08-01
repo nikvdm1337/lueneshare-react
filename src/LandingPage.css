@@ -1,3 +1,38 @@
-.display-3.h1 {
-    align-content: center !important;
+.LandingPage {
+    height: 100vh;
+    background-image:url('./img/landingpage.jpg');
+    background-size: cover;
+    background-size: 100% 100%;
 }
+
+.headline {
+    color:white;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    padding:4%;
+}
+
+.goToHome {
+    text-align: center;
+}
+
+.goToHome button{
+    height:60px;
+    width: 200px;
+}
+
+.introduction h3 {
+    font-size:40px;
+    color:white;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+}
+
+.introduction p {
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    padding:2%;
+}
+
