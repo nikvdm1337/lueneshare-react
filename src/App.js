@@ -44,17 +44,6 @@ class App extends Component {
 	}
 
 
-	getAllMessages = () => {
-		axios.get('http://localhost:2000/api/messages').then((res) => {
-			console.log('messages', res.data)
-			this.setState({
-				messages: res.data
-			});
-			
-		}).catch((err) => {
-			console.log('err', err)
-		})
-	}
 
 	setCategory = (id) => {
 		this.setState({
@@ -126,7 +115,6 @@ class App extends Component {
 	componentDidMount() {
 		this.getAllCategories()
 		this.getAllProducts()
-		this.getAllMessages()
 	}
 
 	// Render
