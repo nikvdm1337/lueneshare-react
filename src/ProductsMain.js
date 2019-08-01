@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Product from './Product'
 import './Product.css'
-import {FullScreenProduct} from './FullScreenProduct'
+import FullScreenProduct from './FullScreenProduct'
 import axios from 'axios'
 import './ProductsMain.css'
 
-export default class ProductsMain extends React.Component {
+export default class ProductsMain extends Component {
 	// Data
 	constructor() {
 	  super()
@@ -20,6 +20,7 @@ export default class ProductsMain extends React.Component {
 		e.preventDefault()
 		let message = {
 			body: text,
+			product: this.state.selectedProduct
 		}
 		axios.post(
 			'http://localhost:2000/api/messages',
