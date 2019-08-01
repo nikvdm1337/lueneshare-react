@@ -29,22 +29,11 @@ class Signup extends Component {
 		this.setState({city: e.target.value})
   }
   
-  addFile = (e) => {
-		this.setState({
-			file: e.target.files[0]
-		})
-	}
 
-	signup = (e, file) => {
+
+	signup = (e) => {
     e.preventDefault()
-    let form_holder = new FormData()
-		form_holder.append('name', this.state.name)
-		form_holder.append('email', this.state.email)
-    form_holder.append('city', this.state.city)
-    form_holder.append('password', this.state.password)
-    form_holder.append('file', file)
-    
-		axios.post(`${process.env.REACT_APP_API}`, form_holder).then((res) => {
+		axios.post(`${process.env.REACT_APP_API}/api/signup`, this.state).then((res) => {
 			localStorage.setItem('token', res.data.token)
 			this.props.auth()
 		}).catch((err) => {
@@ -70,9 +59,6 @@ class Signup extends Component {
                     </div>
                     <div className="form-group">
                       <input type="password" className="form-control" placeholder="Password..." value={this.state.password} onChange={(e) => this.changePassword(e)} />
-                    </div>
-                    <div className="form-group">
-                    <input type="file" name="file" onChange={this.addFile}/>
                     </div>
                     <div className="form-group">
                       <input type="text" className="form-control" placeholder="Dein Ort.." value={this.state.city} onChange={(e) => this.changeCity(e)} />
