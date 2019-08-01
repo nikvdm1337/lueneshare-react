@@ -25,6 +25,7 @@ class NavMain extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="/profile">Mein Profil</Nav.Link>
             <Nav.Link href="/signup">Registrier dich</Nav.Link>
+			<Nav.Link href="/pm">Nachrichten</Nav.Link>
             {this.checkAuth() ? <Logout /> : <Login auth={this.props.auth} />}
           </Nav>
        </Navbar>		
