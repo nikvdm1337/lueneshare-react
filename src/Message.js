@@ -8,7 +8,7 @@ class Message extends Component {
             <CardGroup>
             <Card>
               <CardBody sm={2}>
-                <CardTitle className="userName">{this.props.message.author.name} <span className="date"> {moment(this.props.message.date).format('D MMM YY hh:m A')} </span> </CardTitle>  
+                <CardTitle className="userName">{this.props.message.author.name} <span className="date"> {moment(this.props.message.date).format('D MMM YY hh:mm A')} </span> </CardTitle>  
                 <CardText className="textBody">{this.props.message.body}</CardText>
               </CardBody>
             </Card>

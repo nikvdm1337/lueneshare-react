@@ -40,7 +40,7 @@ class FullScreenProduct extends React.Component {
             <CardBody sm={2}>
             <CardImg sm={2}top width="100%" src={this.props.product.file} alt="Product image" />
               <CardTitle className="producttitle">{this.props.product.title} - <span className="productcategory">{this.props.product.category.name}</span></CardTitle>
-              <CardSubtitle>von <span className="productauthor"> {this.props.product.author.name}</span> gepostet um <span className="date"> {moment(this.props.product.date).format('D MMM YY hh:m A')} </span></CardSubtitle>
+              <CardSubtitle>von <span className="productauthor"> {this.props.product.author.name}</span> gepostet um <span className="date"> {moment(this.props.product.date).format('D MMM YY hh:mm A')} </span></CardSubtitle>
               <div className="description">Beschreibung:</div>
               <CardText>{this.props.product.description}</CardText>
               <Button className="onFullScreenButton" onClick={() => this.props.showAllProducts()}>Zurück</Button>
