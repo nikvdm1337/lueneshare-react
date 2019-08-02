@@ -92,6 +92,7 @@ class App extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then((res) => {
+			console.log('products', this.state.products)
 			console.log('res', res)
 			console.log('sent file', obj.file.name)
 			let products = this.state.products
