@@ -9,8 +9,30 @@ import axios from 'axios'
 class FullScreenProduct extends React.Component {
 
   state = {
+    selectedProduct: this.props.selectedProduct,
     messages: []
   }
+
+  createMessage = (e, text) => {
+		e.preventDefault()
+		let message = {
+			body: text,
+			product: this.state.selectedProduct
+		}
+		axios.post(
+			`${process.env.REACT_APP_API}/api/messages`,
+			message,
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}}
+		).then((res) => {
+			let messages = this.state.messages
+			messages.unshift(res.data)
+			this.setState({messages})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
 
   getAllMessages = () => {
 		axios.get(`${process.env.REACT_APP_API}/api/messages?product=${this.props.product._id}`).then((res) => {
@@ -48,7 +70,7 @@ class FullScreenProduct extends React.Component {
           </Card>
           </CardGroup>
           </Col>
-          <CommentSection messages={this.state.messages} createMessage={this.props.createMessage}/>
+          <CommentSection messages={this.state.messages} createMessage={this.createMessage}/>
           </Row>
     )
   }
