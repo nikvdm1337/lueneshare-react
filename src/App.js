@@ -25,7 +25,6 @@ class App extends Component {
 		};
 	}
 	// Functions
-
 	hideSidebar = () => {
 		this.setState({
 			showSidebar: false
@@ -42,8 +41,6 @@ class App extends Component {
 			console.log('err', err)
 		})
 	}
-
-
 
 	setCategory = (id) => {
 		this.setState({
@@ -72,7 +69,6 @@ class App extends Component {
 		})
   }
 
-	
 	createProduct = (obj) => {
 		this.setState({
 			isSpinner:true,
@@ -92,9 +88,6 @@ class App extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then((res) => {
-			console.log('products', this.state.products)
-			console.log('res', res)
-			console.log('sent file', obj.file.name)
 			let products = this.state.products
 			products.unshift(res.data)
 			this.setState({products})
@@ -113,6 +106,7 @@ class App extends Component {
 			visible: !this.state.visible
 		})
 	}
+	
 	componentDidMount() {
 		this.getAllCategories()
 		this.getAllProducts()
@@ -136,9 +130,6 @@ class App extends Component {
 		 		categories={this.state.categories}
 				 
 			 	/>
-				
-			
-			 
 		</Col>
         <Col sm={10}> <ProductsMain 
 					category={this.state.category} 
@@ -148,7 +139,6 @@ class App extends Component {
 						
 					/> 
 		</Col> 
-		
       </Row>
     </Container>
 	<Footer />
