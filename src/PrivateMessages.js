@@ -8,18 +8,26 @@ import MyProduct from './MyProduct'
 
 class PrivateMessages extends Component {
 
-    state = {
+    constructor() {
+        super();
+    this.state = {
         user: {},
         products:[],
-        selectedProduct:''
+        selectedProduct:"5d3d7794038441269dfeafa2",
+        messages:[],
     }
+    }
+    getAllMessages = () => {
+		axios.get(`${process.env.REACT_APP_API}/api/messages?product=${this.state.selectedProduct}`).then((res) => {
+			console.log('messages', res.data)
+			this.setState({
+				messages: res.data
+			});
+		}).catch((err) => {
+			console.log('err', err)
+		})
+  }
 
-    setProductID = (id) => {
-		this.setState({
-			selectedProduct: id
-		}, () => console.log(id))
-    }
-    
     getProfile = () => {
 		axios.get(`${process.env.REACT_APP_API}/api/profile`, 
 		{headers: {
@@ -50,6 +58,15 @@ class PrivateMessages extends Component {
         })
     }
 
+    setProductID = (id) => {
+		this.setState({
+			selectedProduct: id
+        },console.log('id', this.state.selectedProduct),
+        console.log(`${process.env.REACT_APP_API}/api/messages?product=${this.state.selectedProduct}`),
+        console.log('messages',this.state.messages),
+        this.getAllMessages())
+    }
+
     componentWillMount() {
         this.getProfile()
     }
@@ -69,12 +86,14 @@ class PrivateMessages extends Component {
                             }
                          </ul>
                 </Col>
-                
                 <Col sm={9} className="commentSection">
                     <h4>Deine Nachrichten</h4>
                 <div id="messages">
-                    <PrivateMessage/>
-                    <PrivateMessage/>
+                    {
+						this.state.messages.map((m) => {
+							return <PrivateMessage message={m} key={m._id} />
+						})
+					}
 				</div>
                 <NewMessage />
             </Col>

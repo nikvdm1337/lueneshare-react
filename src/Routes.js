@@ -7,9 +7,11 @@ import Profile from './Profile'
 import PrivateMessages from './PrivateMessages'
 import LandingPage from './LandingPage'
 
+
 class Routes extends Component {
 	// Data
-	state = {}
+	state = {
+	}
 	// Functions
 	checkAuth = () => {
 		if (localStorage.getItem('token')) {
@@ -31,7 +33,7 @@ class Routes extends Component {
 					<Route path="/login" component={() => <Login auth={this.auth} />} />
 					<Route path="/signup" component ={() => <Signup auth={this.auth} />} />
 					<Route path="/profile" component = {() => <Profile auth={this.auth}/>} />
-					<Route path="/pm" component = {() => <PrivateMessages auth={this.auth}/>} />
+					<Route path="/pm" component = {() => <PrivateMessages messages={this.state.messages} auth={this.auth}/>} />
                     <Route path="/home" component={() => <App auth={this.auth} />} />
 					<Route path="/" component={() => <LandingPage />} />
 				</Switch>

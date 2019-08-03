@@ -21,7 +21,7 @@ class NavMain extends Component {
 	render() {
 		return (
       <Navbar>
-        <Navbar.Brand href="/">LüneShare</Navbar.Brand>
+        <Navbar.Brand href="/home">LüneShare</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/profile">Mein Profil</Nav.Link>
             <Nav.Link href="/signup">Registrier dich</Nav.Link>

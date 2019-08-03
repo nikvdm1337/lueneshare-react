@@ -3,7 +3,6 @@ import axios from 'axios'
 import NavMain from './NavMain'
 import { Col, Row } from 'reactstrap';
 import MyProduct from './MyProduct'
-
 import './Profile.css'
 
 class Profile extends Component {
@@ -51,9 +50,8 @@ class Profile extends Component {
     componentWillMount() {
         this.getProfile()
     }
-    render() {
-        
 
+    render() {
         return (
             <div className="entireProfilePage">
             <NavMain />
@@ -73,7 +71,6 @@ class Profile extends Component {
                     </Col>
                     <Col xs="2" className="ProfileContent">
                         <h2>Meine Produkte:</h2>
-                        
                         <ul>
                         {
                                 this.state.products.map((p) => {

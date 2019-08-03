@@ -5,6 +5,7 @@ class Logout extends Component {
 // Function
 logout = (e) => {
     localStorage.removeItem('token')
+    
 }
 
     render() {
