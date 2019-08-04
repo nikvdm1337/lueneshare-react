@@ -14,8 +14,6 @@ export default class ProductsMain extends Component {
 	  }
   }
 
-	
-
 	selectProductForFullscreenView = (id) => {
 		this.setState({
 			showAll: false,
@@ -45,6 +43,10 @@ export default class ProductsMain extends Component {
 		const chosenProduct = this.props.products.filter((product) => {
 			return product._id === this.state.selectedProduct
 		}) //Returns an array
+		if (chosenProduct[0] === undefined) {
+			this.showAllProducts()
+			return this.renderAll();
+		}
 		return (
 			<FullScreenProduct 
 			product={chosenProduct[0]} 
@@ -56,7 +58,7 @@ export default class ProductsMain extends Component {
 	render () {
 		const {showAll} = this.state
 		return (
-			showAll
+			showAll 
 				? this.renderAll()
 				: this.renderSingle()
 		)
