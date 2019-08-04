@@ -8,10 +8,13 @@ import axios from 'axios'
 
 class FullScreenProduct extends React.Component {
 
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
     selectedProduct: this.props.selectedProduct,
     messages: []
   }
+}
 
   createMessage = (e, text) => {
 		e.preventDefault()
