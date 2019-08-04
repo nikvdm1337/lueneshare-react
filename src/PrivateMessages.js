@@ -13,10 +13,32 @@ class PrivateMessages extends Component {
     this.state = {
         user: {},
         products:[],
-        selectedProduct:"5d3d7794038441269dfeafa2",
+        selectedProduct:"",
         messages:[],
+     }
     }
+
+    createMessage = (e, text) => {
+		e.preventDefault()
+		let message = {
+			body: text,
+			product: this.state.selectedProduct
+		}
+		axios.post(
+			`${process.env.REACT_APP_API}/api/messages`,
+			message,
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}}
+		).then((res) => {
+			let messages = this.state.messages
+			messages.unshift(res.data)
+			this.setState({messages})
+		}).catch((err) => {
+			console.log('err', err)
+		})
     }
+    
     getAllMessages = () => {
 		axios.get(`${process.env.REACT_APP_API}/api/messages?product=${this.state.selectedProduct}`).then((res) => {
 			console.log('messages', res.data)
@@ -51,8 +73,9 @@ class PrivateMessages extends Component {
 		}}
         ).then((res) => {
             this.setState({
-                products: res.data
-            }, () => console.log('products', this.state.products))
+                products: res.data,
+                selectedProduct: res.data[0]._id
+            }, () => this.getAllMessages())
         }).catch((err) => {
             console.log('err', err)
         })
@@ -61,13 +84,12 @@ class PrivateMessages extends Component {
     setProductID = (id) => {
 		this.setState({
 			selectedProduct: id
-        },console.log('id', this.state.selectedProduct),
-        console.log(`${process.env.REACT_APP_API}/api/messages?product=${this.state.selectedProduct}`),
-        console.log('messages',this.state.messages),
-        this.getAllMessages())
+        }, () => {
+            this.getAllMessages()
+        })
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getProfile()
     }
 
@@ -95,7 +117,7 @@ class PrivateMessages extends Component {
 						})
 					}
 				</div>
-                <NewMessage />
+                <NewMessage createMessage={this.createMessage} />
             </Col>
             </Row>
             </div>
