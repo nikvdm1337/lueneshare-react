@@ -1,14 +1,13 @@
 nav {
-    font-family: 'Indie Flower', cursive;
-    font-size: 20px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 18px;
     background-color: #B8D870 !important;
-    font-weight: bold;
     color: white;
-    border-radius:0px 0px 50px 50px;
 }
 
 a.navbar-brand{
     color:#5C5F6D !important;
+    font-weight: bold !important;
 }
 
 div.mr-auto.navbar-nav a.nav-link {
