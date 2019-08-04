@@ -13,26 +13,28 @@ class LandingPage extends Component {
       <div className="bigDiv">
            <div className="text">
       <div className="smallPic">
-        <img className="smallImage" src={heading2} alt="Italian Trulli" />
+        <img className="smallImage" src={heading2} alt="food" />
       </div>
+
       <div className="textInside">
         <h2>LÜNESHARE</h2>
         <p>Teile deine Freude, rette Lebensmittel</p>
       </div>
+
       <div className="button">
         <Button className="GoToApp" href="/home"> Enter</Button>
         <h6>FOLGE UNS</h6>
       </div>
 
       <div className="icon">
-        <img className="icon1" src={icon1} alt="Italian Trulli" />
-        <img className="icon1" src={icon2} alt="Italian Trulli" />
-        <img className="icon1" src={icon3} alt="Italian Trulli" />
+        <img className="icon1" src={icon1} alt="facebook" />
+        <img className="icon1" src={icon2} alt="instagram" />
+        <img className="icon1" src={icon3} alt="twitter" />
       </div>
     </div>
 
       <div className="image">
-      <img className="heading" src={landing1} alt="Italian Trulli" />
+      <img className="heading" src={landing1} alt="" />
     </div>
       </div>
     );
