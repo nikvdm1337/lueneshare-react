@@ -17,8 +17,7 @@ class LandingPage extends Component {
       </div>
 
       <div className="textInside">
-        <h2>LÜNESHARE</h2>
-        <p>Teile deine Freude, rette Lebensmittel</p>
+      <h6>Teile deine Freude - rette Lebensmittel!</h6>
       </div>
 
       <div className="button">

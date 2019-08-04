@@ -3,6 +3,7 @@ import {Navbar, Nav} from 'react-bootstrap';
 import Login from './Login'
 import Logout from './Logout'
 import './NavMain.css'
+import NavLogo from './img/LogoSwag.svg'
 
 class NavMain extends Component {
 	// Data
@@ -21,7 +22,15 @@ class NavMain extends Component {
 	render() {
 		return (
       <Navbar>
-        <Navbar.Brand href="/home">LÜNESHARE</Navbar.Brand>
+        <Navbar.Brand href="/home">
+		<img
+        src={NavLogo}
+        width="200"
+        height="100"
+        className="d-inline-block align-top navlogo"
+		alt="Lüneshare Logo"
+    	/>
+		</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/profile">Mein Profil</Nav.Link>
             <Nav.Link href="/signup">Registrier dich</Nav.Link>

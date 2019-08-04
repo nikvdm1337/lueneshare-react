@@ -4,7 +4,7 @@
 }
 
 ul.nav {
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #5C5F6D !important;
 }
@@ -19,7 +19,7 @@ a.nav-link {
 
 .myShares {
     color: #5C5F6D !important;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 div.col-sm-2 {

@@ -32,7 +32,7 @@ body {
   background-color: white !important;
 }
 
-button {
+button.toggleSubmitButton {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33);
