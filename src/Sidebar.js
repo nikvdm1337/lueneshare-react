@@ -22,12 +22,6 @@ export default class SidebarMain extends React.Component {
 					}
 				</NavItem>
         </Nav>
-        <h3 className="myShares">Meine Shares</h3>
-        <Nav vertical>
-          <NavItem>
-
-          </NavItem>
-        </Nav>
       </div>
     );
   }

@@ -58,7 +58,6 @@ class FullScreenProduct extends React.Component {
         <Col sm={5}>
         <CardGroup>
           <Card>
-          <Button className="onFullScreenButton">Schreibe mir</Button>
             <CardBody sm={2}>
             <CardImg sm={2}top width="100%" src={this.props.product.file} alt="Product image" />
               <CardTitle className="producttitle">{this.props.product.title} - <span className="productcategory">{this.props.product.category.name}</span></CardTitle>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardTitle, CardText, CardGroup, CardBody } from 'reactstrap';
 import moment from 'moment'
+import './Message.css'
 
 class Message extends Component {
     render() {
