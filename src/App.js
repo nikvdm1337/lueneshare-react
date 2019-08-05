@@ -117,7 +117,7 @@ class App extends Component {
 		return (
 
     <div className="megawrap">
-     <NavbarMain sticky={'top'} auth={this.props.auth} />
+     <NavbarMain sticky={'top'} auth={this.props.auth} checkAuth={this.props.checkAuth} />
      <Container>
       <Row className="containerSideNavAndProducts">
         <Col sm={2}>

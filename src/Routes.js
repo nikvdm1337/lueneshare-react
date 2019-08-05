@@ -30,7 +30,7 @@ class Routes extends Component {
 					<Route path="/signup" component ={() => <Signup auth={this.auth} />} />
 					<Route path="/profile" component = {() => <Profile auth={this.auth}/>} />
 					<Route path="/pm" component = {() => <PrivateMessages auth={this.auth}/>} />
-                    <Route path="/home" component={() => <App auth={this.auth} />} />
+                    <Route path="/home" component={() => <App auth={this.auth} checkAuth={this.checkAuth} />} />
 					<Route path="/" component={() => <LandingPage />} />
 				</Switch>
 			</BrowserRouter>
