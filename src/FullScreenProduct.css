@@ -10,11 +10,21 @@ div.col-sm-10 {
 }
 .commentSection{
     background-color:white;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
-    height:40vw;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height:80vh;
 }
+
+.commentSection h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.commentSection #messages {
+    height: 66vh !important;
+}
+
 .productsingle .card-img-top {
     height: 29vw;
     object-fit: scale-down;
