@@ -4,26 +4,28 @@
 }
 
 .goToProduct {
-    background-color: #88C440 !important;
-    margin-left: 40px;
+    background: #88C440 !important;
+    border-color: #47B049 !important;
 }
 
 .goToProduct:hover {
    background-color: #47B049 !important;
 }
-.product {
-    margin-top: 20px;
+.card.product {
+    margin-top: 30px;
     color:black;
+    border-radius: 7px;
 }
 
 p.card-text {
     color: black;
+    margin-left: 0;
 }
 .TopImage {
     min-height:50vh;
     width:auto;
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 5px 5px 0 0;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -45,8 +47,8 @@ p.card-text {
 }
 
 .date {
-    font-style: italic;
     color: gray;
+    display: block;
 }
 
 .description {
@@ -56,9 +58,9 @@ p.card-text {
 }
 
 .card {
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.39);
+    -webkit-box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
 }
 
 .goToProduct{

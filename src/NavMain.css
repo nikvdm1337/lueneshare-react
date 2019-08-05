@@ -22,3 +22,8 @@ div.mr-auto.navbar-nav a.nav-link {
 .form-inline {
     margin-left: 550px;
 }
+
+.navbar-expand .navbar-nav .nav-link {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
