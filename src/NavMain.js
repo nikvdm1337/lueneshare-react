@@ -33,7 +33,7 @@ class NavMain extends Component {
 		</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/profile">Mein Profil</Nav.Link>
-            {this.props.checkAuth() ? null : <Nav.Link href="/signup">Registrier dich</Nav.Link>}
+            <Nav.Link href="/signup">Registrier dich</Nav.Link>
 			<Nav.Link href="/pm">Nachrichten</Nav.Link>
             {this.checkAuth() ? <Logout /> : <Login auth={this.props.auth} />}
           </Nav>
