@@ -94,7 +94,7 @@ class App extends Component {
 			this.setState({
 				isSpinner: false,
 			})
-			this.getProductsForCategory()
+			this.getAllProducts()
 		}).catch((err) => {
 			console.log('err', err)
 		})
