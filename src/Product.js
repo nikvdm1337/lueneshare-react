@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, CardTitle, CardText, CardGroup,
+import { Card, Button, CardTitle, CardText,
  CardSubtitle, CardBody } from 'reactstrap';
 import './Product.css'
 import {Col} from 'reactstrap'; 
