@@ -85,8 +85,9 @@ class App extends Component {
 			`${process.env.REACT_APP_API}/api/products`,
 			form_holder,
 			{headers: {
-				Authorization: `Bearer ${localStorage.getItem('token')}`
-			}}
+				Authorization: `Bearer ${localStorage.getItem('token')}`	
+			}, 
+		}
 		).then((res) => {
 			let products = this.state.products
 			products.unshift(res.data)
