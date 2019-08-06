@@ -10,6 +10,7 @@ import LandingPage from './LandingPage'
 
 class Routes extends Component {
 	// Data
+
 	// Functions
 	checkAuth = () => {
 		if (localStorage.getItem('token')) {
@@ -21,6 +22,7 @@ class Routes extends Component {
 	auth = () => {
 		this.forceUpdate()
 	}
+
 	// Render
 	render() {
 		return (

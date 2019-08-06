@@ -96,7 +96,7 @@ class PrivateMessages extends Component {
     render() {
         return (
             <div>
-                <NavMain />
+                <NavMain user={this.state.user} />
             <Row>
                 <Col sm={2}>
                 <h2>Meine Produkte:</h2>
