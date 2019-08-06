@@ -17,6 +17,7 @@ class App extends Component {
 			category:'',
 			categories:[],
 			products: [],
+			user:{},
 			newProduct: null,
 			visible: false,
 			messages: [],
@@ -31,6 +32,20 @@ class App extends Component {
 		})
 	}
 
+	getProfile = () => {
+		axios.get(`${process.env.REACT_APP_API}/api/profile`, 
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}}
+		).then((res) => {
+			this.setState({
+                user: res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
+	
 	getAllCategories= () => {
 		axios.get(`${process.env.REACT_APP_API}/api/categories`).then((res) => {
 			this.setState({
@@ -111,6 +126,7 @@ class App extends Component {
 	componentDidMount() {
 		this.getAllCategories()
 		this.getAllProducts()
+		this.getProfile()
 	}
 
 	// Render
@@ -118,7 +134,7 @@ class App extends Component {
 		return (
 
     <div className="megawrap">
-     <NavbarMain sticky={'top'} auth={this.props.auth} checkAuth={this.props.checkAuth} />
+     <NavbarMain sticky={'top'} user={this.state.user} auth={this.props.auth} checkAuth={this.props.checkAuth} />
      <Container>
       <Row className="containerSideNavAndProducts">
         <Col sm={2}>

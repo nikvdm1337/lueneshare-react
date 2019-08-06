@@ -27,3 +27,7 @@ div.mr-auto.navbar-nav a.nav-link {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
+
+.WelcomeMessage {
+    margin-left: 1000px;
+}
