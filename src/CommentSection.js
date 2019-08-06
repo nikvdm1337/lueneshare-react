@@ -30,7 +30,7 @@ class CommentSection extends Component {
         console.log(this.state.messages)
         return (
             <Col sm={5} className="commentSection">
-            <h4>Kommentare</h4>
+            <h4>Nachrichten</h4>
             <div id="messages">
 					{
 						this.state.messages.map((m) => {
