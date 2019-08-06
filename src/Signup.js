@@ -35,7 +35,8 @@ class Signup extends Component {
     e.preventDefault()
 		axios.post(`${process.env.REACT_APP_API}/api/signup`, this.state).then((res) => {
 			localStorage.setItem('token', res.data.token)
-			this.props.auth()
+      this.props.auth()
+      window.location.href='/home'
 		}).catch((err) => {
 			console.log('err', err)
 		})
@@ -49,18 +50,18 @@ class Signup extends Component {
             <div className="col-4 offset-4">
               <div className="card signup">
                 <div className="card-body">
-                <h3>Registriere dich bei LueneShare!</h3 >
+                <h3>Registriere dich bei LÜNESHARE</h3 >
                   <form onSubmit={(e) => this.signup(e)}>
-                    <div className="form-group">
+                    <div className="form-group signupform">
                       <input type="text" className="form-control" placeholder="Nickname..." value={this.state.name} onChange={(e) => this.changeName(e)} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group signupform">
                       <input type="email" className="form-control" placeholder="Email..." value={this.state.email} onChange={(e) => this.changeEmail(e)} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group signupform">
                       <input type="password" className="form-control" placeholder="Password..." value={this.state.password} onChange={(e) => this.changePassword(e)} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group signupform">
                       <input type="text" className="form-control" placeholder="Dein Ort.." value={this.state.city} onChange={(e) => this.changeCity(e)} />
                     </div>
                     <button type="submit" className="btn btn-success">Signup</button>
