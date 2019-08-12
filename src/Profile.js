@@ -54,7 +54,7 @@ class Profile extends Component {
     render() {
         return (
             <div className="entireProfilePage">
-            <NavMain />
+            <NavMain user={this.state.user} />
             <div className="profileContainer">
                 <Row>
                     <Col sm="2" className="ProfilePicture">
